@@ -1,0 +1,559 @@
+ehp = 0
+dungeonboss = 0
+charge = 1
+bot = 0
+pot=0
+xp = 0
+player = 1
+egg = 0
+hp = 15
+level = 0
+fxp=0
+plevel = 1
+eat = 0
+cans = 0
+edam = 0
+extra = "None"
+dodge = 0
+eattack = "None"
+attack = "None"
+ye = 0
+battle = 0
+monster = "None"
+luck = 0
+att = "None"
+wlevel = 0
+weapon = "None"
+item = "None"
+replace = 0
+hasweapon = 0
+strenth = 1
+encounter = 0
+import sys
+import time
+import random
+import os
+from termcolor import colored, cprint
+
+def clear():
+
+    if (os.name == 'nt'):
+        _ = os.system('cls')
+
+    else:
+        _ = os.system('clear')
+
+
+clear()
+alive = 1
+strenth
+print()
+print("hello player")
+print("what is your name")
+name = input("")
+time.sleep(1)
+clear()
+if (name == "Josh" or name == "josh"):
+  print("You can't be Josh, I'm Josh")
+  time.sleep(1)
+  print("you can be called Bob")
+  time.sleep(1)
+  name = "Bob"
+elif (name == "The dog is a member of the genus Canis, which forms part of the wolf-like canids, and was the first species and the only large carnivore to have been domesticated."):
+    print("Hail o mighty one")
+    time.sleep(1)
+    print("")
+    time.sleep(1)
+    name = "Josh"
+elif (name == ""):
+  name=("[]")
+print("hello " + name)
+time.sleep(1)
+print("I am Josh")
+time.sleep(1)
+print("and this is my game.")
+time.sleep(1)
+print("I hope you enjoy it")
+time.sleep(1)
+print("It took me ages")
+time.sleep(1)
+print()
+print()
+print("So then, let us get started (:>)")
+time.sleep(2)
+clear()
+while alive == 1:
+    go=None
+    ye = 0
+    item = 0
+    replace = 0
+    level = random.randint(1, 10)
+    luck = random.randint(0, 10)
+    encounter = random.randint(1, 14)
+    if (xp < 50):
+      player = 1
+      hp = 15
+      fhp= 15
+      strenth = 1
+    elif 50 <= xp <= 250:
+      player = 2
+      hp = 30
+      strenth = 2
+    elif 250 <= xp <= 400:
+      player = 3
+      hp = 50
+      fhp = 50
+      strenth = 5
+    elif 250 <= xp <= 400:
+      player = 4
+      hp = 75
+      fhp = 75
+      strenth = 7.5
+    elif 400 <= xp <= 475:
+      player = 5
+      hp = 100
+      fhp = 100
+      strenth = 10
+    elif 475 <= xp <= 550:
+      player = 6
+      hp = 150
+      fhp = 150
+      strenth = 15
+    #15 is max for^
+    print(name + "   Lv " + str(player) + "  Hp  " + str(hp) + "           XP " + str(xp) + "   You are currently carrying a level " + str(wlevel) + " " + weapon )
+    if(egg == 1):
+      print("TO BE CONTINUED....")
+      time.sleep(5)
+      sys.exit()
+    cprint(" ______/^\______       ______/^\______       ______/^\______  ",
+           "yellow")
+    cprint("/       |       \     /       |       \     /       |       \ ",
+           "yellow")
+    cprint("|----o  |  o----|     |----o  |  o----|     |----o  |  o----| ",
+           "yellow")
+    cprint("|       |       |     |       |       |     |       |       | ",
+           "yellow")
+    cprint("|--o   |L|   o--|     |--o   |M|   o--|     |--o   |R|   o--| ",
+           "yellow")
+    cprint("|       |       |     |       |       |     |       |       | ",
+           "yellow")
+    cprint("|----o  |  o----|     |----o  |  o----|     |----o  |  o----| ",
+           "yellow")
+    cprint("|_______|_______|     |_______|_______|     |_______|_______| ",
+           "yellow")
+    
+    go = input(colored("What door do you go through?", "yellow")).lower()
+    print()
+    if (go == "l" or go == "left"):
+        cprint("You have gone through the left door!", "yellow")
+        print()
+        time.sleep(2)
+        clear()
+    elif (go == "r" or go == "right"):
+        cprint("You have gone through the right door!", "yellow")
+        print()
+        time.sleep(2)
+        clear()
+    elif (go == "m" or go == "middle"):
+        cprint("You have gone through the middle door!", "yellow")
+        print()
+        time.sleep(2)
+        clear()
+    elif (go == "open o mythical portal"):
+        cprint("You have gone through the secret door!", "yellow")
+        print()
+        time.sleep(2)
+        luck = random.randint(6, 10)
+        clear()
+    else:
+        cprint("ERROR: input response not found", "yellow")
+        time.sleep(2)
+        clear()
+        ye = 1
+        time.sleep(1)
+
+    if (ye == 0):
+        time.sleep(1)
+        if (luck > 6):
+            if 6 <= luck <= 7:
+                item = "dagger"
+            if 8 <= luck <= 9:
+                item = "bow"
+            elif (luck == 10):
+                item = "sword"
+            cprint("You have found a level " + str(level) + " " + item + "!",
+                   "yellow")
+            print()
+            time.sleep(2)
+            pickup = input(colored("Do you pick it up? (y/n) ", "yellow"))
+            print()
+            time.sleep(2)
+
+            if (pickup == "y" or pickup == "yes" or pickup == "Y"):
+              if (hasweapon== 1):
+                replace = input("You already have a level " + str(wlevel) +" "+ weapon + ". Do you want to drop it. (y/n)")
+                time.sleep(2)
+                if (replace == "y" or replace == "yes" or replace == "Y"):
+                    cprint("You picked up the level " + str(level) + " " + item +
+                        " and it has been added to your inventory.", "yellow")
+                    hasweapon = 1
+                    weapon = item
+                    wlevel = level
+                elif (replace == "n" or replace == "no"):
+                  cprint("You did not pick up the " + item + ".", "yellow")
+
+              else:  
+                cprint(
+                    "You picked up the level " + str(level) + " " + item +
+                    " and it has been added to your inventory.", "yellow")
+                hasweapon = 1
+                weapon = item
+                wlevel = level
+
+            elif (pickup == "n" or pickup == "no"):
+                cprint("You did not pick up the " + item + ".", "yellow")
+            else:
+                cprint("ERROR: Ivalid response. Ignoring situation.", "yellow")
+        elif (luck <= 2):
+            if (encounter <= 5):
+                print("you encounter a level " + str(level / 2) + "slime")
+                monster = "slime"
+                ehp = level
+                round (ehp,1)
+                fxp = level * 5
+            elif 6 <= encounter <= 9:
+                print("you encounter a level " + str(level) + "skeleton")
+                monster = "skeleton"
+                ehp = level * 2
+                fxp = level * 15
+            elif 10 <= encounter <= 12:
+                print("you encounter a level " + str(level * 2) + "orc")
+                monster = "orc"
+                ehp = level * 5
+                fxp = level * 30
+            elif 13 <= encounter <= 14:
+                print("you encounter a level " + str(level * 5) + "centaur")
+                monster = "centaur"
+                ehp = level * 8
+                fxp = level * 50
+            elif (encounter == 15):
+              if (level == 15 and dungeonboss == 1):
+                print("you encounter the dungeon heart. The very object you were sent to destroy.")
+                time.sleep(2)
+                final=input("Do you destroy it?????   (y/n)")
+                egg = 1
+                if (final== "y" or "yes"):
+                  print("the mana pours out of the crystal fillig you")
+                  time.sleep(2)
+                  print("You feel your level rising rapidly")
+                  time.sleep(2)
+                  print("without the life force to sustain it, the dungeon crumbles into nothingness")
+                  time.sleep(2)
+                  print("trapping all inside")
+                  time.sleep(2)
+                  hp=0
+                if (final == "n" or "no"):
+                  print("as you walk away the crystal starts to shimmer")
+                  time.sleep(2)
+                  print("darkness pours out of it and engulfs you. ")
+                  time.sleep(2)
+                  clear()
+                  cprint("I have found a host worthy of this power" , "red")
+                  time.sleep(2)
+                  cprint("I hope you enjoy it" , "red")
+                  time.sleep(2)
+                  name = "dungeon master"
+                  hp = 999999999
+                  xp = 99999999999999
+                  level = 9999
+                  weapon = "darkness"
+              else:
+                print("you encounter a level " + str(level * 10) + "dragon")
+                monster = "dragon"
+                ehp = level * 30
+                fxp = level * 200
+            time.sleep(2)
+            clear()
+            if (egg == 0):
+              battle = 1
+              while (battle == 1):
+                dodge = 0
+                att = "None"
+                eat = random.randint(1,2)
+                eattack = "None"
+                bot == 0
+
+                print(monster + "  HP = " + str(ehp))
+                if (encounter <= 5):
+                  print("(; ･`д･´)​")
+                  print()
+                  print()
+                  print()
+                  print()
+                  print()
+                  print()
+                  print()
+
+                elif 6 <= encounter <= 9:
+                  print(" ____ ")
+                  print("( ꒪Д꒪) ")
+                  print("/_|_\ ")
+                  print(" _|_-  ")
+                  print(" /'\  ")
+                  print()
+                  print()
+                  print()
+
+                elif 10 <= encounter <= 12:
+                  print(" ____ ")
+                  print("( ꒪¬꒪) {0}")
+                  print("/(   )\ /")
+                  print(" (___) / ")
+                  print(" /   \  ")
+                  print()
+                  print()
+                  print()
+
+                elif 13 <= encounter <= 14:
+                  print("  <=======]}======")
+                  print("    --.   /|")
+                  print("   _\"/_.'/")
+                  print(" .'._._,.'")
+                  print(" :/ \{}/")
+                  print("(L  /--',----._")
+                  print("    |          \\")
+                  print("   : /-\ .'-'\ / |")
+                  print("    \\, ||    \|")
+                  print("     \/ ||    ||")
+                elif (encounter == 15):
+                  print("        ,     \    /      ,        ")
+                  print("       / \    )\__/(     / \       ")
+                  print("      /   \  (_\  /_)   /   \      ")
+                  print(" ____/_____\__\@  @/___/_____\____ ")
+                  print("|             |\../|              |")
+                  print("|              \VV/               |")
+                  print("|        KEEP AWAY FROM MY        |")
+                  print("|_______________GOLD______________|")
+                  print(" |    /\ /      \\       \ /\    | ")
+                  print(" |  /   V        ))       V   \  | ")
+                  print(" |/     `       //        '     \| ")
+                  print(" `              V                '")
+
+                print(name + " HP = " + str(hp))
+                print("                    (^^^)")
+                print("                   /(''')\ ")
+                print("                  / (___) \ ")
+                print("                    /   \ ")
+                print()
+                print()
+                print("What do you do?")
+                if (weapon == "dagger"):
+                  if (pot == 0 ):
+                    attack = input("1-slash or 2-dodge")
+                  else:  
+                    attack = input("1-slash, 2-dodge, 3-heal" )
+                  if (attack == "1" or attack == "slash"):
+                    ehp = ehp - (wlevel * strenth / 2 + 1)
+                    att= "slash"
+                  elif (attack == "2" or attack == "dodge"):
+                      if (cans == 0):
+                          dodge = +1
+                          att= "dodge"
+                      else:
+                          print("you can't move")
+                  elif (attack == "3" or attack == "heal"):
+                      hp = hp + 10
+                      pot = pot - 1
+                elif (weapon == "bow"):
+                    if (pot == 0 ):
+                      attack = input("1-shoot or 2-charge bow")
+                    else:  
+                      attack = input("1-punch or 2-dodge 3-heal" )
+                    if (attack == "1" or attack == "shoot"):
+                        ehp= (ehp - ((wlevel /2) * strenth * charge ))
+                        charge = 1
+                        att= "shoot"
+                    elif (attack == "2" or attack == "charge bow"):
+                        charge= charge * 1.5
+                        att= "charge bow"
+                    elif (attack == "3" or attack == "heal"):
+                        hp = hp + 10
+                        pot = pot - 1
+                elif (weapon == "sword"):
+                    if (pot == 0 ):
+                      attack = input("1-slice or 2-charge sword")
+                    else:  
+                      attack = input("1-punch or 2-dodge 3-heal" )
+                    if (attack == "1" or attack == "slice"):
+                        ehp = ehp - (wlevel * strenth * charge / 1.5)
+                        charge = 1
+                        att = "slice"
+                    elif (attack == "2" or attack == "charge sword"):
+                        charge = charge * 1.5
+                        att= "charge sword"
+                    elif (attack == "3" or attack == "heal"):
+                        hp = hp + 10
+                        pot = pot - 1
+                elif (weapon == "staff"):
+                    if (pot == 0 ):
+                      attack = input("1-cast spell or 2-charge spell")
+                    else:  
+                      attack = input("1-cast spell or 2-charge spell 3-heal" )
+                    if (attack == "1" or attack == "cast spell"):
+                        ehp = ehp - (wlevel * strenth * charge)
+                        charge = 1
+                        att = "a spell "
+                    elif (attack == "2" or attack == "charge sword"):
+                        charge = charge *2
+                        att= "charge spell"
+                    elif (attack == "3" or attack == "heal"):
+                        hp = hp + 10
+                        pot = pot - 1
+                else:
+                    if (pot == 0 ):
+                      attack = input("1-punch or 2-dodge" )
+                    else:  
+                      attack = input("1-punch or 2-dodge 3-heal" )
+                    if (attack == "1" or attack == "punch"):
+                        ehp = ehp - (strenth)
+                        att = "punch"
+                    elif (attack == "2" or attack == "dodge"):
+                        if (cans == 0):
+                            dodge = +1
+                            att= "dodge"
+                        elif (attack == "3" or attack == "heal"):
+                          hp = hp + 10
+                          pot = pot - 1
+                        else:
+                            print("you can't move")
+                if (ehp > 0):
+                  if (encounter <= 5):
+                    if (eat == 1):
+                        edam = level / 2
+                        eattack = "sludge"
+                        if (dodge == 0):
+                            hp = hp - level / 2
+                            if hp < 0:
+                                hp = 0
+                        extra = ("it does " + str(level/ 2) + "damage")
+                    else:
+                        eattack = "slime"
+                        cans = 1
+                        extra = "it stops you moving"
+
+                  elif 6 <= encounter <= 9:
+                    if (eat == 1):
+                        edam = level
+                        eattack = "bone snapper"
+                        if (dodge == 0):
+                            hp = hp - level
+                            if hp < 0:
+                                hp = 0
+                            extra = "it does " + str(level) + " damage"
+                    elif (eat == 2):
+                        ehp = ehp + 3
+                        if (ehp > level * 2):
+                            ehp = level * 2
+                        eattack = "drinks milk"
+                        extra = "he heals 3 hp due to calcium"
+
+                  elif ((10 <= encounter <= 12) and bot == 0):
+                    if (eat == 1):
+                        edam = level * 2
+                        eattack = ("skull crusher")
+                        if (dodge == 0):
+                            hp = hp - (level * 2)
+                            if hp < 0:
+                                hp = 0
+                            extra = ("it does " + str(level * 2) + " damage")
+                    elif (eat == 2):
+                        edam = level * 4
+                        eattack = ("head ram")
+                        hp = hp - (level * 4)
+                        if hp < 0:
+                          hp = 0
+                        extra = ("it does " + str(level * 4) + " damage and he is dizzy")
+                        bot = 1
+                  elif 13 <= encounter <= 14:
+                    if (eat == 1):
+                        edam = level * 3
+                        eattack = ("charge")
+                        if (dodge == 0):
+                            hp = hp - (level * 3)
+                            if hp < 0:
+                                hp = 0
+                        extra = ("it does " + str(level * 3) + "damage")
+                    else:
+                        eattack = ("spear")
+                        if (dodge == 0):
+                            hp = hp - (level *3)
+                            if hp < 0:
+                                hp = 0
+                        extra = ("it does " + str(level *3) + "damage")
+                
+                  elif (encounter == 15):
+                    if ((10 <= encounter <= 12) and bot == 1):
+                        eattack = "is to dizzy"
+                        extra = "to attack."
+                        bot = 0
+                else:
+                  extra=("dead")
+                  eattack=("is")
+                print("You use " + att)
+                print(monster + " uses " + eattack + " " + extra)
+                time.sleep(2)
+                cans = 0
+                bot = 0
+                if(hp <= 0):
+                    alive = 0
+                    battle= 0
+                    clear()
+                    cprint("Game Over!", "red")
+                    time.sleep(2)
+                elif (int(ehp) <= 0):
+                    print("you beat the " + monster + ". Incredible job!")
+                    print("You gained" + str(fxp) + "XP." )
+                    if(encounter == 15 and level == 10):
+                      print("AND it dropped a magic staff.")
+                      dungeonboss = 1
+                      pickup = input(colored("Do you pick it up? (y/n) ", "yellow"))
+                      print()
+                      time.sleep(2)
+                      if (pickup == "y" or pickup == "yes" or pickup == "Y"):
+                        if (hasweapon== 1):
+                          replace = input("You already have a level " + str(wlevel) +" "+  weapon + ". Do you want to drop it. (y/n)")
+                          time.sleep(2)
+                          if (replace == "y" or replace == "yes" or replace == "Y"):
+                            cprint("You picked up the staff and it has been added to your inventory.", "yellow")
+                            hasweapon = 1
+                            weapon = "staff"
+                            wlevel = 99
+                          elif (replace == "n" or replace == "no"):
+                            cprint("You did not pick up the staff.", "yellow")
+
+                        else:  
+                          cprint("You picked up the staff and it has been added to your inventory.", "yellow")
+                          hasweapon = 1
+                          weapon = item
+                          wlevel = level
+
+                      elif (pickup == "n" or pickup == "no"):
+                        cprint("You did not pick up the staff.", "yellow")
+                      else:
+                        cprint("ERROR: Ivalid response. Ignoring situation.", "yellow")
+                      xp = (xp + fxp)
+                      battle = 0
+                      time.sleep(5)
+
+                clear()
+                dodge = 0
+        elif 4 <= encounter <= 5:
+          cprint("you find a healable", "green")
+          pot = pot+1
+          time.sleep(1.5)
+
+        elif(egg == 0):
+            print("it's an empty room with 3 doors at the end.")
+
+    time.sleep(2)
+    clear()
